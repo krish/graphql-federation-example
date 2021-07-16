@@ -25,7 +25,9 @@ export class EmployeeService {
 
     }
 
-    async getProject(id: string) {
-        // return this.projectService.findOne(id)
+    async forProject(id: string): Promise<Employee[]> {
+        let emp: Employee[] = await this.employeeRepository.find({ "projectId": id })
+        return emp;
+
     }
 }

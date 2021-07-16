@@ -21,7 +21,8 @@ export class ProjectService {
   }
 
   async findOne(id: string): Promise<Project> {
-    return this.projectRepository.findOne(id);
+    let project: Project = await this.projectRepository.findOne(id);
+    return project;
   }
 
   update(id: string, updateProjectInput: UpdateProjectInput) {

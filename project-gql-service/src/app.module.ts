@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ProjectModule } from './project/project.module';
-import { GraphQLModule } from '@nestjs/graphql';
+import { GraphQLFederationModule, GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 
 @Module({
-  imports: [ProjectModule, GraphQLModule.forRoot(
+  imports: [ProjectModule, GraphQLFederationModule.forRoot(
     {
       autoSchemaFile: join(process.cwd(), 'src/graphql-schema.gql')
     }

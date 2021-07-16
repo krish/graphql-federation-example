@@ -1,13 +1,18 @@
 import { Module } from '@nestjs/common';
 import { EmployeeModule } from './employee/employee.module';
-import { GraphQLModule } from '@nestjs/graphql';
+import { GraphQLFederationModule, GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
+import { Project } from './employee/entity/project.entity';
 
 @Module({
-  imports: [EmployeeModule, GraphQLModule.forRoot(
+  imports: [EmployeeModule, GraphQLFederationModule.forRoot(
     {
-      autoSchemaFile: join(process.cwd(), 'src/graphql-schema.gql')
+      //autoSchemaFile: true,
+      autoSchemaFile: join(process.cwd(), 'src/graphql-schema.gql'),
+      buildSchemaOptions: {
+        orphanedTypes: [Project]
+      }
     }
   ),
     TypeOrmModule.forRoot({

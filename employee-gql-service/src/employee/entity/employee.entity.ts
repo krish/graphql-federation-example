@@ -1,7 +1,9 @@
-import { Field, ObjectType } from "@nestjs/graphql"
+import { Directive, Field, ObjectType } from "@nestjs/graphql"
 import { Column, Entity, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm"
+import { Project } from "./project.entity"
 
 @ObjectType()
+@Directive('@key(fields: "id")')
 @Entity()
 export class Employee {
     @Field()
@@ -20,9 +22,9 @@ export class Employee {
     @Column({ nullable: true })
     city: string
 
-    /*  @ManyToOne(() => Project, project => project.employees)
-     @Field(() => Project)
-     project: Project */
+    /*  @ManyToOne(() => Project, project => project.employees)*/
+    @Field(() => Project)
+    project?: Project
 
     @Column()
     @Field()
