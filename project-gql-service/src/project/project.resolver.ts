@@ -35,6 +35,7 @@ export class ProjectResolver {
 
   @ResolveReference()
   resolveReference(ref: { __typename: string; id: string }): Promise<Project> {
+    console.log('resolving ref')
     return this.projectService.findOne(ref.id)
   }
 }

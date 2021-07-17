@@ -25,6 +25,7 @@ type Employee {
   city: String
   project: Project!
   projectId: String!
+  locationId: String!
 }
 
 type Query {
@@ -42,4 +43,5 @@ input EmployeeCreateDTO {
   designation: String!
   city: String
   projectId: String!
+  locationId: String!
 }

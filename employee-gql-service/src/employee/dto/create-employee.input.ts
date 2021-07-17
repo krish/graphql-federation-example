@@ -13,4 +13,6 @@ export class EmployeeCreateDTO {
 
     @Field()
     projectId: string
+    @Field()
+    locationId: string
 }

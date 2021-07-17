@@ -29,5 +29,8 @@ export class Employee {
     @Column()
     @Field()
     projectId: string
+    @Column()
+    @Field()
+    locationId: string
 
 }
