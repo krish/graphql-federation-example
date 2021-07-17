@@ -4,6 +4,7 @@ import { GraphQLFederationModule, GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { Project } from './employee/entity/project.entity';
+import { Location } from './employee/entity/location.entity';
 
 @Module({
   imports: [EmployeeModule, GraphQLFederationModule.forRoot(
@@ -11,7 +12,7 @@ import { Project } from './employee/entity/project.entity';
       //autoSchemaFile: true,
       autoSchemaFile: join(process.cwd(), 'src/graphql-schema.gql'),
       buildSchemaOptions: {
-        orphanedTypes: [Project]
+        orphanedTypes: [Project, Location]
       }
     }
   ),

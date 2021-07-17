@@ -11,7 +11,8 @@ import { GraphQLGatewayModule } from '@nestjs/graphql';
     gateway: {
       serviceList: [
         { name: 'employees', url: 'http://localhost:3000/graphql' },
-        { name: 'projects', url: 'http://localhost:3001/graphql' }
+        { name: 'projects', url: 'http://localhost:3001/graphql' },
+        { name: 'locations', url: 'http://localhost:3002/graphql' }
       ]
     }
   })],

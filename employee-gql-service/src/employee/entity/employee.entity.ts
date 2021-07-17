@@ -1,4 +1,5 @@
 import { Directive, Field, ObjectType } from "@nestjs/graphql"
+import { Location } from "./location.entity"
 import { Column, Entity, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm"
 import { Project } from "./project.entity"
 
@@ -25,6 +26,8 @@ export class Employee {
     /*  @ManyToOne(() => Project, project => project.employees)*/
     @Field(() => Project)
     project?: Project
+    @Field(() => Location, { nullable: true })
+    location?: Location
 
     @Column()
     @Field()

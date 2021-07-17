@@ -30,4 +30,9 @@ export class EmployeeService {
         return emp;
 
     }
+    async forLocation(id: string): Promise<Employee[]> {
+        let emp: Employee[] = await this.employeeRepository.find({ "locationId": id })
+        return emp;
+    }
+
 }

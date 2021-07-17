@@ -25,7 +25,10 @@ export class EmployeeResolver {
     @ResolveField((of) => Project)
     project(@Parent() employee: Employee) {
         return { __typename: 'Project', id: employee.projectId }
-        //return this.employeeService.forProject(employee.projectId)
+    }
+    @ResolveField((of) => Project)
+    location(@Parent() employee: Employee) {
+        return { __typename: 'location', id: employee.locationId }
     }
 
     /* @ResolveField(() => Project)

@@ -12,9 +12,14 @@ directive @requires(fields: String!) on FIELD_DEFINITION
 
 directive @provides(fields: String!) on FIELD_DEFINITION
 
+type Location {
+  id: ID!
+  employees: [Employee!]!
+}
+
 type Project {
   id: ID!
-  employees: [Employee!]
+  employees: [Employee!]!
 }
 
 type Employee {
@@ -24,6 +29,7 @@ type Employee {
   designation: String!
   city: String
   project: Project!
+  location: Location
   projectId: String!
   locationId: String!
 }
